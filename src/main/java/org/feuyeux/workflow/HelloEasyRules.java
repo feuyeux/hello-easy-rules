@@ -1,6 +1,5 @@
 package org.feuyeux.workflow;
 
-
 import lombok.extern.slf4j.Slf4j;
 import org.jeasy.rules.api.Facts;
 import org.jeasy.rules.api.Rule;
@@ -14,7 +13,6 @@ import org.jeasy.rules.support.reader.YamlRuleDefinitionReader;
 
 import java.io.File;
 import java.io.FileReader;
-import java.io.InputStream;
 import java.net.URI;
 
 @Slf4j
