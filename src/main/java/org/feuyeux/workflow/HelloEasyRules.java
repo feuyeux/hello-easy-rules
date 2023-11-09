@@ -19,10 +19,10 @@ import java.net.URI;
 public class HelloEasyRules {
 
     public static void main(String[] args) throws Exception {
-        // in a declarative way using annotations:
+        // 1 in a declarative way using annotations:
         WeatherRule weatherRule1 = new WeatherRule();
 
-        // in a programmatic way with a fluent API:
+        // 2 in a programmatic way with a fluent API:
         Rule weatherRule2 = new RuleBuilder()
                 .name("weather rule 2")
                 .description("if it rains then take an umbrella")
@@ -30,14 +30,14 @@ public class HelloEasyRules {
                 .then(facts -> System.out.println("2 It rains, take an umbrella!"))
                 .build();
 
-        // using an Expression Language:
+        // 3 using an Expression Language:
         Rule weatherRule3 = new MVELRule()
                 .name("weather rule 3")
                 .description("if it rains then take an umbrella")
                 .when("rain == true")
                 .then("System.out.println(\"3 It rains, take an umbrella!\");");
 
-        // using a rule descriptor:
+        // 4 using a rule descriptor:
         MVELRuleFactory ruleFactory = new MVELRuleFactory(new YamlRuleDefinitionReader());
         URI res = HelloEasyRules.class.getClassLoader().getResource("weather-rule.yml").toURI();
         Rule weatherRule4 = ruleFactory.createRule(new FileReader(new File(res)));
